@@ -271,6 +271,8 @@ class Calendar extends Component {
           weekNumbers={this.props.showWeekNumbers}
           onPressArrowLeft={this.props.onPressArrowLeft}
           onPressArrowRight={this.props.onPressArrowRight}
+          renderHeader={this.props.renderHeader}
+          headerData={this.props.headerData}
         />
         <View style={this.style.monthView}>{weeks}</View>
       </View>);
