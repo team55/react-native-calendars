@@ -84,10 +84,16 @@ class CalendarList extends Component {
       openDate: date
     };
 
-    this.onViewableItemsChangedBound = this.onViewableItemsChanged.bind(this);
+    // this.onViewableItemsChangedBound = this.onViewableItemsChanged.bind(this);
     this.renderCalendarBound = this.renderCalendar.bind(this);
     this.getItemLayout = this.getItemLayout.bind(this);
     this.onLayout = this.onLayout.bind(this);
+
+    this.viewabilityConfig = {
+      //   waitForInteraction: true,
+      itemVisiblePercentThreshold: 95,
+    };
+  
   }
 
   onLayout(event) {
@@ -148,7 +154,7 @@ class CalendarList extends Component {
     });
   }
 
-  onViewableItemsChanged({viewableItems}) {
+  onViewableItemsChanged = ({viewableItems}) => {
     function rowIsCloseToViewable(index, distance) {
       for (let i = 0; i < viewableItems.length; i++) {
         if (Math.abs(index - parseInt(viewableItems[i].index)) <= distance) {
@@ -198,6 +204,7 @@ class CalendarList extends Component {
   render() {
     return (
       <FlatList
+        viewabilityConfig={this.viewabilityConfig} // Igor Butakoff
         onLayout={this.onLayout}
         ref={(c) => this.listView = c}
         //scrollEventThrottle={1000}
@@ -210,7 +217,8 @@ class CalendarList extends Component {
         pageSize={1}
         horizontal={this.props.horizontal}
         pagingEnabled={this.props.pagingEnabled}
-        onViewableItemsChanged={this.onViewableItemsChangedBound}
+        // onViewableItemsChanged={this.onViewableItemsChangedBound}
+        onViewableItemsChanged={this.onViewableItemsChanged}
         renderItem={this.renderCalendarBound}
         showsVerticalScrollIndicator={this.props.showScrollIndicator}
         showsHorizontalScrollIndicator={this.props.showScrollIndicator}
