@@ -89,10 +89,10 @@ class CalendarList extends Component {
     this.getItemLayout = this.getItemLayout.bind(this);
     this.onLayout = this.onLayout.bind(this);
 
-    this.viewabilityConfig = {
-      //   waitForInteraction: true,
-      itemVisiblePercentThreshold: 95,
-    };
+    // this.viewabilityConfig = {
+    //   //   waitForInteraction: true,
+    //   itemVisiblePercentThreshold: 95,
+    // };
   
   }
 
@@ -204,7 +204,7 @@ class CalendarList extends Component {
   render() {
     return (
       <FlatList
-        viewabilityConfig={this.viewabilityConfig} // Igor Butakoff
+        // viewabilityConfig={this.viewabilityConfig} // Igor Butakoff
         onLayout={this.onLayout}
         ref={(c) => this.listView = c}
         //scrollEventThrottle={1000}
