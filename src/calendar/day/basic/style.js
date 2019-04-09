@@ -32,6 +32,14 @@ export default function styleConstructor(theme={}) {
     todayText: {
       color: appStyle.todayTextColor
     },
+    // ++ Butakoff Igor
+    todaySelected: {
+      backgroundColor: appStyle.todayBackgroundColor
+    },
+    todaySelectedText: {
+      color: appStyle.todayTextColor
+    },
+    // ++ Butakoff Igor
     selectedText: {
       color: appStyle.selectedDayTextColor
     },
